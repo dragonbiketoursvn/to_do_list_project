@@ -97,4 +97,7 @@ class TodoList {
     });
     return result;
   }
+  forEach(callback) {
+    this.forEach(callback);
+  }
 }
