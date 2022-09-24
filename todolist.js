@@ -98,6 +98,15 @@ class TodoList {
     return result;
   }
   forEach(callback) {
-    this.forEach(callback);
+    this.todos.forEach(callback);
+  }
+  filter(callback) {
+    let returnList = new TodoList(this.title);
+    this.forEach(todo => {
+      if (callback(todo)) {
+        returnList.add(todo);
+      }
+    });
+    return returnList;
   }
 }
