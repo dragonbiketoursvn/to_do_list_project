@@ -109,4 +109,28 @@ class TodoList {
     });
     return returnList;
   }
+  findByTitle(title) {
+    return this.filter(todo => todo.getTitle() === title).first();
+  }
+  allDone() {
+    return this.filter(todo => todo.isDone());
+  }
+  allNotDone() {
+    return this.filter(todo => !todo.isDone());
+  }
+  markDone(title) {
+    let todo = this.filter(todo => todo.getTitle() === title).first();
+    if (todo !== undefined) {
+      todo.markDone();
+    }
+  }
+  markAllDone() {
+    this.forEach(todo => todo.markDone());
+  }
+  markAllUnDone() {
+    this.forEach(todo => todo.markUndone());
+  }
+  toArray() {
+    return [...this.todos];
+  }
 }
